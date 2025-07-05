@@ -26,7 +26,7 @@ article {
   align-self: center;
   justify-self: center;
   width: 18ch;
-  font: bold 20px/1 system-ui;
+  font: bold 1.2rem/1.4 system-ui;
   color: #b5b5b5;
   text-rendering: optimizeLegibility;
 }
@@ -118,5 +118,32 @@ article:nth-of-type(3) > p {
   }
   to {
     opacity: 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  article {
+    width: 90%;
+    font-size: 16px;
+    text-align: center;
+    padding: 10px;
+  }
+
+  article:nth-of-type(2),
+  article:nth-of-type(3) {
+    margin-left: 0;
+  }
+
+  article:nth-of-type(3) > p {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  article:nth-of-type(3) > p::before,
+  article:nth-of-type(3) > p::after {
+    display: none;
+  }
+
+  canvas {
+    height: 100vh;
   }
 }
