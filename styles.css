@@ -49,7 +49,7 @@ article > p::before {
 }
 article > p::after {
   opacity: 0;
-  animation: fade-in 10s forwards 8s;
+  animation: fade-in 510s forwards 8s;
 }
 article:nth-of-type(2) {
   margin-left: 5ch;
@@ -127,23 +127,86 @@ article:nth-of-type(3) > p {
     text-align: center;
     padding: 10px;
   }
-
   article:nth-of-type(2),
   article:nth-of-type(3) {
     margin-left: 0;
   }
-
   article:nth-of-type(3) > p {
     font-size: 32px;
     line-height: 1.2;
   }
-
   article:nth-of-type(3) > p::before,
   article:nth-of-type(3) > p::after {
     display: none;
   }
-
   canvas {
     height: 100vh;
   }
+}
+/* Хай-тек стилі для аудіо-контролів */
+.audio-controls {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 10;
+}
+.music-button {
+  padding: 8px 16px;
+  font: bold 1rem system-ui;
+  color: #b5b5b5;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(50, 50, 50, 0.7));
+  border: 1px solid #c51;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(200, 85, 17, 0.5), inset 0 0 5px rgba(200, 85, 17, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.music-button:hover {
+  background: linear-gradient(45deg, rgba(50, 50, 50, 0.8), rgba(100, 100, 100, 0.8));
+  box-shadow: 0 0 15px rgba(200, 85, 17, 0.8), inset 0 0 8px rgba(200, 85, 17, 0.5);
+  transform: scale(1.05);
+}
+.music-button:active {
+  transform: scale(0.95);
+}
+#volumeControl {
+  width: 100px;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: linear-gradient(to right, #c51 0%, #c51 50%, #b5b5b5 50%, #b5b5b5 100%);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+#volumeControl::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: #c51;
+  border: 2px solid #b5b5b5;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(200, 85, 17, 0.7);
+  transition: all 0.2s ease;
+}
+#volumeControl::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 12px rgba(200, 85, 17, 1);
+  transform: scale(1.2);
+}
+#volumeControl::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  background: #c51;
+  border: 2px solid #b5b5b5;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(200, 85, 17, 0.7);
+  transition: all 0.2s ease;
+}
+#volumeControl::-moz-range-thumb:hover {
+  box-shadow: 0 0 12px rgba(200, 85, 17, 1);
+  transform: scale(1.2);
 }

@@ -19,13 +19,22 @@
         </article>
         <article class="hide">
             <h2>Без Духа Святого ми не досягнемо мети </h2>
-            <p>Шукай Його ВЖЕ&hellip;</p>
+            <p>Шукай Його ВЖЕ…</p>
         </article>
     </main>
-    <script type="x-shader/x-fragment">#version 300 es
-/*********
+    <!-- Додаємо музику з автоплей -->
+    <audio id="backgroundMusic" autoplay loop volume="0.5">
+        <source src="audio/music.mp3" type="audio/mpeg">
+        Ваш браузер не підтримує елемент audio.
+    </audio>
+    <!-- Кнопка паузи/відтворення та слайдер гучності -->
+    <div class="audio-controls">
+        <button id="toggleAudio" onclick="toggleAudio()" class="music-button">Пауза</button>
+        <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="0.5" oninput="adjustVolume()">
+    </div>
 
-*/   
+    <script type="x-shader/x-fragment">#version 300 es
+ 
 precision highp float;
 out vec4 O;
 uniform float time;

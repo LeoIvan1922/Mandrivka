@@ -30,6 +30,13 @@ function init() {
   };
   loop(0);
   setTimeout(showPhrases, 1000);
+
+  // Спроба автоматичного відтворення музики після завантаження
+  var audio = document.getElementById("backgroundMusic");
+  audio.play().catch(function(error) {
+    console.log("Автовідтворення заблоковано браузером: ", error);
+  });
+  updateButtonText(); // Оновлення тексту кнопки
 }
 
 function toggleArticles() {
@@ -56,6 +63,30 @@ function showPhrases() {
   main.classList.remove("hidden");
   toggleArticle();
   handle = setInterval(toggleArticle, 20000);
+}
+
+function toggleAudio() {
+  var audio = document.getElementById("backgroundMusic");
+  if (audio.paused) {
+    audio.play().catch(function(error) {
+      console.log("Помилка відтворення: ", error);
+    });
+  } else {
+    audio.pause();
+  }
+  updateButtonText();
+}
+
+function updateButtonText() {
+  var audio = document.getElementById("backgroundMusic");
+  var button = document.getElementById("toggleAudio");
+  button.textContent = audio.paused ? "Відтворення" : "Пауза";
+}
+
+function adjustVolume() {
+  var audio = document.getElementById("backgroundMusic");
+  var volume = document.getElementById("volumeControl").value;
+  audio.volume = volume;
 }
 
 class Renderer {
